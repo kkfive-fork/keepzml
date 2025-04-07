@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import { motion } from 'motion/react'
+import { variants } from './variants'
 import { start_path, column_url } from '../config'
 import { ArrowRight, User, Star, ShoppingCart } from 'lucide-react'
 import Button from '@/components/ui/button'
@@ -8,9 +10,9 @@ import { useLoginStore } from 'app/service'
 
 export default function Banner() {
   const subscrible = useLoginStore((state) => state.subscrible)
-  console.log(subscrible)
+
   return (
-    <div className='relative p-4 md:p-8 flex border-gray-200 border rounded gap-10 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50'>
+    <motion.div {...variants(0)} className='relative p-4 md:p-8 flex border-gray-200 border rounded gap-10 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50'>
       {/* 现代几何装饰背景 */}
       <div className='absolute inset-0 overflow-hidden'>
         {/* 主背景渐变 */}
@@ -43,7 +45,7 @@ export default function Banner() {
         <div className='flex items-center gap-2 mt-2'>
           <div className='text-sm flex items-center gap-1'>
             <Star size={16} className='text-pink-600' />
-            <span className='text-pink-600'>234 人已订阅</span>
+            <span className='text-pink-600'>341 人已订阅</span>
           </div>
 
           <div className='hidden md:block'> · </div>
@@ -78,6 +80,6 @@ export default function Banner() {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
