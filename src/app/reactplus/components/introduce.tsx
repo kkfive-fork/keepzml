@@ -1,4 +1,3 @@
-
 'use client'
 
 import { motion } from 'motion/react'
@@ -8,7 +7,7 @@ import { Code, InlineCode } from 'components/codehike/code'
 
 export default function SuitableFor() {
   return (
-    <motion.div {...variants(0.1)} className='p-4 border-gray-200 border rounded'>
+    <motion.div {...variants(0.1)} className='p-4 md:p-8 border-gray-200 border rounded'>
       <header className='font-bold'>专栏简介</header>
 
       <div className="keep">

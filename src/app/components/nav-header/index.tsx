@@ -11,7 +11,8 @@ import clsx from 'clsx'
 import './index.css'
 
 export const index_links = [
-  { path: '/reactzm', text: 'React 知命境 . 重构版', icon: Ghost },
+  { path: '/reactzm', text: 'React 知命境', icon: Ghost },
+  { path: '/reactplus', text: 'React 知命境 . 尊享', icon: Ghost },
   { path: '/reactprinciple', text: 'React 原理面试', icon: Ghost },
   { path: '/supercss', text: '超级 CSS', icon: Zap },
 ]

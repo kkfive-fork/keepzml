@@ -12,6 +12,7 @@ import * as r19plus_config from 'app/r19plus/config'
 import * as zustand_config from 'app/zustand/config'
 import * as r19lightning_config from 'app/r19lightning/config'
 import * as reactzm_config from 'app/reactzm/config'
+import * as reactplus_config from 'app/reactplus/config'
 import * as supercss_config from 'app/supercss/config'
 
 const config = {
@@ -21,6 +22,7 @@ const config = {
   zustand: zustand_config,
   r19lightning: r19lightning_config,
   reactzm: reactzm_config,
+  reactplus: reactplus_config,
   supercss: supercss_config,
 }
 
