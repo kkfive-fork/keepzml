@@ -12,7 +12,8 @@ export default function MobileHeader() {
 
   return (
     <>
-      <div className='lg:hidden flex items-center text-gray-700' onClick={() => modal.current.show()}>
+      <div className='flex items-center text-gray-700 cursor-pointer space-x-2' onClick={() => modal.current.show()}>
+        <div className='hidden lg:block text-sm font-bold'>查看全部</div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
         </svg>
@@ -40,10 +41,10 @@ export default function MobileHeader() {
           </motion.div>
         ))}
 
-        <motion.div className='flex items-center px-6 py-4 justify-between' {...variants(0.4)}>
+        {/* <motion.div className='flex items-center px-6 py-4 justify-between' {...variants(0.4)}>
           <ChatButton />
           <ChevronRight size={18} />
-        </motion.div>
+        </motion.div> */}
 
         <motion.div className='flex justify-center mt-8' {...variants(0.5)}>
           <Proflile />

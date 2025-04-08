@@ -1,6 +1,11 @@
+'use client'
+
+import { motion } from 'motion/react'
+import { variants } from './variants'
+
 export default function SuitableFor() {
   return (
-    <div className='p-4 border-gray-200 border rounded'>
+    <motion.div {...variants(0.4)} className='p-4 border-gray-200 border rounded'>
       <header className='font-bold'>大章节分类</header>
 
       <ul className='list-disc space-y-3 pl-4 pt-6'>
@@ -16,6 +21,6 @@ export default function SuitableFor() {
         <li>十、CSS 性能优化策略<span className='text-sm text-gray-500 ml-4'>结合渲染原理分析性能策略</span></li>
         <li>十一、CSS 变量与函数</li>
       </ul>
-    </div>
+    </motion.div>
   )
 }

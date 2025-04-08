@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'motion/react'
+import { variants } from './variants'
 import Link from 'next/link'
 import { PartyPopper } from 'lucide-react'
 import { column_url } from '../config'
@@ -5,7 +9,7 @@ import Button from '@/components/ui/button'
 
 export default function SuitableFor() {
   return (
-    <div className='p-4 border-gray-200 border rounded keep'>
+    <motion.div {...variants(0.2)} className='p-4 border-gray-200 border rounded keep'>
       <header className='font-bold'>超前投资，火热开启</header>
 
       <p className='space-x-2 mt-2'>
@@ -18,6 +22,6 @@ export default function SuitableFor() {
           <Button signal>200 元 . 超前投资</Button>
         </Link>
       </div>
-    </div>
+    </motion.div>
   )
 }

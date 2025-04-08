@@ -1,15 +1,19 @@
+
+'use client'
+
+import { motion } from 'motion/react'
+import { variants } from './variants'
 import Intro from './intro.mdx'
 import { Code, InlineCode } from 'components/codehike/code'
 
 export default function SuitableFor() {
   return (
-    <div className='p-4 border-gray-200 border rounded'>
+    <motion.div {...variants(0.5)} className='p-4 border-gray-200 border rounded'>
       <header className='font-bold'>专栏简介</header>
 
       <div className="keep">
         <Intro components={{ Code, InlineCode }} />
       </div>
-
-    </div>
+    </motion.div>
   )
 }

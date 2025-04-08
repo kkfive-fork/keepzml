@@ -21,6 +21,7 @@
   @apply fixed top-0 right-0 w-full h-[100vh] bg-white;
   --drawer-wdith: 200px;
   --drawer-x: 200px;
+  max-width: 400px;
   width: var(--drawer-wdith);
   translate: var(--drawer-x);
   animation-duration: 400ms;

@@ -45,7 +45,7 @@ export default function Drawer(props: DrawerProps) {
     styles = {
       right: 0,
       '--drawer-wdith': width,
-      '--drawer-x': width
+      '--drawer-x': '400px'
     }
   }
 
@@ -53,7 +53,8 @@ export default function Drawer(props: DrawerProps) {
     styles = {
       left: 0,
       '--drawer-wdith': width,
-      '--drawer-x': `-${width}`
+      '--drawer-x': `-400px`
+      // '--drawer-x': `-${width}`
     }
   }
 

@@ -10,7 +10,7 @@ export default function Avatar() {
   if (!isLogin) {
     return (
       <Link
-        className='flex items-center px-8 py-1 rounded bg-blue-500 text-white'
+        className='flex items-center px-8 py-1 rounded bg-blue-500 text-white ml-4'
         href={getAuthURL()}
       >
         <div>登录</div>

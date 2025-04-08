@@ -1,8 +1,12 @@
+'use client'
+
+import { motion } from 'motion/react'
+import { variants } from './variants'
 import { Projector } from 'lucide-react'
 
 export default function SuitableFor() {
   return (
-    <div className='p-4 border-gray-200 border rounded keep'>
+    <motion.div {...variants(0.3)} className='p-4 border-gray-200 border rounded keep'>
       <header className='font-bold'>适合人群</header>
 
       <ul className='list-disc space-y-3 pl-4 pt-6'>
@@ -12,6 +16,6 @@ export default function SuitableFor() {
         <li>由于缺乏 CSS 体系，无法晋升资深前端工程师的朋友</li>
         <li>眼馋案例演示实现方案，想要额外单独购买（1000R）专栏案例源码的朋友</li>
       </ul>
-    </div>
+    </motion.div>
   )
 }

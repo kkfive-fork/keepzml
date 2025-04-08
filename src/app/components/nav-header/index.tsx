@@ -3,23 +3,25 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import ActiveLink from 'components/active-link'
-import ChatButton from './chat-button'
 import Profile from './profile'
 import MobileHeader from './mobile'
-import { Ghost, BellDot, BellElectric, Squirrel, Zap, SwatchBook } from 'lucide-react'
+import { Ghost, BellDot, BellElectric, Squirrel, Zap } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import './index.css'
 
-export const links = [
+export const index_links = [
+  { path: '/reactzm', text: 'React 知命境 . 重构版', icon: Ghost },
   { path: '/reactprinciple', text: 'React 原理面试', icon: Ghost },
-  // { path: '/reactzm', text: 'React 知命境', icon: Ghost },
+  { path: '/supercss', text: '超级 CSS', icon: Zap },
+]
+
+export const links = [
+  ...index_links,
   { path: '/r19base', text: 'React 19 . 基础', icon: BellDot },
   { path: '/r19plus', text: 'React 19 . 尊享', icon: BellElectric },
-  // { path: '/zustand', text: 'zustand', icon: Squirrel },
-  // { path: '/r19lightning', text: 'React 速成宝典 . 上', icon: Zap },
-  { path: '/supercss', text: '超级 CSS', icon: Zap },
-  // { path: '', text: '更多', icon: SwatchBook },
+  { path: '/zustand', text: 'zustand', icon: Squirrel },
+  { path: '/r19lightning', text: 'React 速成宝典 . 上', icon: Zap }
 ]
 
 export default function NavHeader() {
@@ -53,7 +55,7 @@ export default function NavHeader() {
             <LOGO />
           </div>
 
-          {links.map(link => (
+          {index_links.map(link => (
             <ActiveLink
               href={link.path} key={link.path}
               className={clsx('hidden lg:flex text-gray-600 text-[14px] items-center hover:bg-white py-2 px-3 rounded-md transition', {
@@ -67,12 +69,12 @@ export default function NavHeader() {
           ))}
         </div>
 
+        <MobileHeader />
+
         <aside id='hp-aside' className='hidden lg:flex h-16 items-center pr-6 space-x-4'>
-          <ChatButton />
+          {/* <ChatButton /> */}
           <Profile />
         </aside>
-
-        <MobileHeader />
       </div>
     </header>
   )
