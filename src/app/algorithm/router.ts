@@ -14,7 +14,7 @@ export const routers: RouteItem[] = [
   // ...r1,
 ].map(item => {
   if (item.path) {
-    item.path = `/reactplus/${item.path}`
+    item.path = `/algorithm/${item.path}`
   }
   return item
 })

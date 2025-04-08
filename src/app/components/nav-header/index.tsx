@@ -15,6 +15,7 @@ export const index_links = [
   { path: '/reactplus', text: 'React 知命境 . 尊享', icon: Ghost },
   { path: '/reactprinciple', text: 'React 原理面试', icon: Ghost },
   { path: '/supercss', text: '超级 CSS', icon: Zap },
+  { path: '/algorithm', text: '算法', icon: Zap },
 ]
 
 export const links = [

@@ -56,11 +56,12 @@ const store = {
     'r19lightning': 0,
     'reactzm': 0,
     'reactplus': 0,
+    'algorithm': 0,
     'supercss': 0
   }
 }
 
-export type ColumnKey = 'r19base' | 'r19plus' | 'r19lightning' | 'zustand' | 'reactzm' | 'reactplus' | 'supercss' | 'reactprinciple'
+export type ColumnKey = 'r19base' | 'r19plus' | 'r19lightning' | 'zustand' | 'reactzm' | 'reactplus' | 'supercss' | 'reactprinciple' | 'algorithm'
 
 export const useLoginStore = create(() => store)
 

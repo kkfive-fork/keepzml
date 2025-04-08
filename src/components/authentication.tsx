@@ -14,6 +14,7 @@ import * as r19lightning_config from 'app/r19lightning/config'
 import * as reactzm_config from 'app/reactzm/config'
 import * as reactplus_config from 'app/reactplus/config'
 import * as supercss_config from 'app/supercss/config'
+import * as algorithm_config from 'app/algorithm/config'
 
 const config = {
   reactprinciple: reactprinciple_config,
@@ -24,6 +25,7 @@ const config = {
   reactzm: reactzm_config,
   reactplus: reactplus_config,
   supercss: supercss_config,
+  algorithm: algorithm_config,
 }
 
 export default function Authentication({ children, pass }: PropsWithChildren<{ pass?: boolean }>) {
