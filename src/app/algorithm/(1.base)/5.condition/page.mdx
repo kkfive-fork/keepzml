@@ -1,0 +1,185 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Demo01 from './demo01/preview'
+
+
+在算法中，条件判断是出现频率最高的基础知识之一。从语法层面来说，这是非常简单的，但是落地到具体的实践和逻辑中去，条件判断应该如何写得更准确，往往是一个非常困难的点。
+
+单独写这篇文章的主要目的并不是说要教大家条件判断的基础语法，因为我相信这些大家都已经很熟悉了，我只是简单的过一遍基础，更关键的 **是要让大家对这个知识点引起重视，并在后续的学习中，作为一个重要的知识点去做知识体系的归纳与总结。**
+
+
+
+
+### 1. 条件判断的基本形式
+
+条件判断的基本形式如下：
+
+```ts
+if(condition) {
+  // do something
+}
+```
+
+```ts
+if(condition) {
+  // do something
+} else {
+  // do something else
+}
+```
+
+其中，`condition` 是一个布尔表达式，当其值为 `true` 时，执行 `do something` 中的语句，否则跳过或者执行 `else` 中的语句。如果 `condition` 是一个非布尔类型的值，会先将其转换为布尔类型，然后再进行判断。
+
+> 注意：在 JavaScript 中，`0`、`NaN`、`null`、`undefined`、`""` 这五个值会被转换为 `false`，其他的值都会被转换为 `true`。
+
+
+
+当执行表达式比较简单时，我们也可以用**三元运算符**来代替 `if else`，下面两种写法是等价的：
+
+```ts
+const age = 26
+let beverage
+if(age >= 21) {
+  beverage = 'Beer'
+} else {
+  beverage = 'Juice'
+}
+console.log(beverage); // Beer
+```
+
+```ts
+const age = 26
+const beverage = age >= 21 ? 'Beer' : 'Juice'
+console.log(beverage); // Beer
+```
+
+除此之外，如果有多个条件需要判断时，我们可以使用 `else if` 来进行链式判断，如下所示：
+
+```ts
+if(condition1) {
+  // do something
+} else if(condition2) {
+  // do something else
+} else if(condition3) {
+  // do something else
+} else {
+  // do something else
+}
+```
+
+当条件类型是一个变量对应多个可能值时，我们可以使用 `switch` 来代替这种多个 `else if` 的嵌套使用
+
+```ts
+const expr = 'Papayas';
+switch (expr) {
+  case 'Oranges':
+    console.log('Oranges are $0.59 a pound.');
+    break;
+  case 'Mangoes':
+  case 'Papayas':
+    console.log('Mangoes and papayas are $2.79 a pound.');
+    // Expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+  default:
+    console.log(`Sorry, we are out of ${expr}.`);
+}
+```
+
+
+### 2. 条件判断的短路特性
+
+条件判断的短路特性（Short-circuit evaluation）是编程语言中逻辑运算符（如 && 和 ||）的一个重要行为特性。
+
+**1、逻辑与 (&&) 的短路特性**
+
+对于表达式 A && B：
+  + 如果 A 为假（false），则整个表达式必定为假，不会计算 B
+  + 只有 A 为真时，才会继续计算 B
+
+```ts
+function canProceed(value) {
+  return value && validate(value); // 如果 value 为假，validate 不会被调用
+}
+```
+
+**2、逻辑或 (||) 的短路特性**
+
+对于表达式 A || B：
+  + 如果 A 为真（true），则整个表达式必定为真，不会计算 B
+  + 只有 A 为假时，才会继续计算 B
+
+```ts
+function getDefault(value) {
+  return value || defaultValue; // 如果 value 为真，defaultValue 不会被计算
+}
+```
+
+利用这样的短路特性，我们可以将执行频率成本更低的条件判断放到前面从而提高执行效率，避免不必要的逻辑运算。
+
+### 3. 条件判断的使用案例
+
+在算法中条件判断的运用场景特别多，我们这篇文章就以**边界条件**为例跟大家提前分享一下，在后续的学习中，我们还会有更多的运用场景需要学习
+
+场景：当我们在切换页面时，
+
++ 如果向下切换到最后一个页面，还有继续向下，则需要将其重置为第一个页面
++ 如果向上切换到第一个页面，还要继续向上，则需要将页面重置为最后一个页面
+
+先直接看一下演示案例以及代码。
+
+<Demo01 />
+<CodeTabs>
+```ts !!tabs index.ts -c
+!from ./demo01/index.tsx
+```
+</CodeTabs>
+
+在实现这个场景的过程中，我们设计了一个指针，用于指向当前页面。我们会根据该指针的值来明确到底应该在页面中渲染什么内容，利用 React 的机制，当指针发生变化时，页面内容也显示对应的数字内容。
+
+```ts
+// 定义一个数组，用于表示多个页面内容
+const arr = useRef([1, 2, 3, 4, 5])
+// 定义一个指针，指向当前页面
+const [current, setCurrent] = useState(0)
+```
+
+在点击向下的切换的过程中，我们需要修改该指针的值，**让指针往下移动一个位置即可**，以确保页面能够及时发生变化。
+
+```ts
+function __clicknext() {
+  setCurrent(current + 1)
+}
+```
+
+但是我们还有边界条件没有处理，一共只有 5 个页面，指针不能一直往后移动，因此，在移动到数组的最后一个位置时，还要往后移动的话，则将指针重置为第一个位置 `0`
+
+```ts
+function __clicknext() {
+  // 如果当前页还不是最后一页
+  if (current < arr.current.length - 1) {
+    // 则将指针往后移动一位
+    setCurrent(current + 1)
+  } else {
+    // 已经移动到最后一位，重置为第一位
+    setCurrent(0)
+  }
+}
+```
+
+在这个思维的基础之上，我们可以换一种写法，用于简化 `if else`。这个思路是声明一个中间变量，来表示当前指针的**预期值**。
+
+如果满足递增的条件，则重置该预期值为正确的递增值
+
+```ts
+function __clicknext() {
+  // 设置预期值
+  let _cur = 0
+  // 如果还没有移动到最后一位，则重置预期值
+  if (current < arr.current.length - 1) {
+    _cur = current + 1
+  }
+  // 修改指针
+  setCurrent(_cur)
+}
+```
+
+大家可以花一点时间体会一下写法的转变。从内存占用的角度来说，第一种方式占用的内存更少，没有额外使用临时变量。只是有时候如果你不喜欢 `else`，则可以采用这种方式优化写法

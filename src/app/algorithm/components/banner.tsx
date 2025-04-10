@@ -45,13 +45,13 @@ export default function Banner() {
 
       <div className='relative z-10 flex-1'>
         <div className='flex items-center justify-between'>
-          <span className='text-2xl font-semibold'>算法 . 面试冲刺</span>
+          <span className='text-2xl font-semibold'>爆锤面试官之算法冲刺</span>
         </div>
 
         <div className='flex items-center gap-2 mt-2'>
           <div className='text-sm flex items-center gap-1'>
             <Star size={16} className='text-pink-600' />
-            <span className='text-pink-600'>1 人已订阅</span>
+            <span className='text-pink-600'>10 人已订阅</span>
           </div>
 
           <div className='hidden md:block'> · </div>

@@ -1,6 +1,5 @@
 import { svip } from '@/app/svip'
 
-// 免费专栏
 export const column_id = '189055530934134374x'
 export const column_url = `/payment`
 export const column_key = 'supercss'
@@ -30,4 +29,5 @@ export const user_ids: string[] = [
   '1896934518825402368', // None
   '1833100751178563584', // Levi
   '1876714278527168512', // haha
+  '1909903667461431296', // Jack_Wang
 ].concat(svip)
