@@ -8,4 +8,6 @@ export const reactversion = 'React@19.0.0'
 
 export const user_ids: string[] = [
   '1813145181655089152', // 这波能反杀
+  '1825335843305291776', // 希柴植物
+  '1876904897136553984', // SPHINX
 ].concat(svip)

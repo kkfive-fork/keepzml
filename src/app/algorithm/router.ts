@@ -1,5 +1,5 @@
 import {r0} from './(0.preface)/router'
-// import {r1} from './(1.philosophy)/router'
+import {r1} from './(1.base)/router'
 
 interface RouteItem {
   type?: string,
@@ -11,7 +11,7 @@ interface RouteItem {
 
 export const routers: RouteItem[] = [
   ...r0,
-  // ...r1,
+  ...r1,
 ].map(item => {
   if (item.path) {
     item.path = `/algorithm/${item.path}`
