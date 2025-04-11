@@ -17,5 +17,10 @@ export const r1 = [
     path: '5.condition',
     name: '3、条件判断',
     label: '限免'
+  },
+  {
+    path: '6.forloop',
+    name: '4、for 循环',
+    label: '限免'
   }
 ]
